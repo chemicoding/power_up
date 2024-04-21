@@ -1,16 +1,19 @@
 ---
+import { AppConfig } from '@/utils/AppConfig';
+import Base from '@/layouts/Base.astro';
+import Hero from '@/components/Hero.astro';
+import LatestPosts from '@/components/LatestPosts.astro';
+import { sortPostsByDate } from '@/utils/data.util';
 
+const { title } = AppConfig;
+const { description } = AppConfig;
+
+const allPosts = await Astro.glob('./posts/*.md');
+allPosts.sort(sortPostsByDate);
+const latestPosts = allPosts.slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base head={{ title, description }}>
+	<Hero />
+	<LatestPosts posts={latestPosts} />
+</Base>
