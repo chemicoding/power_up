@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/post.astro
-title: "This is the first post of my new Astro blog."
+title: "DODDONPACHI RESURRECTION (DODONPACHI DAIFUKKATSU)"
 pubDate: 2023-12-23
 description: "This is the first post of my new Astro blog."
 author: "nicdun"

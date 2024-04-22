@@ -23,8 +23,7 @@ const {
 		<meta name="description" content={description} />
 		<meta name="author" content={AppConfig.author} />
 		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">	
     <link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="alternate" type="application/rss+xml" href="/rss.xml" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
@@ -55,6 +54,7 @@ const {
 	</body>
 </html>
 <style is:global>
-	:root {
+	body, h1, h2, h3, p, .post-header, .post-content {	
+		font-family: 'IBM Plex Mono', monospace;
 	}
 </style>
