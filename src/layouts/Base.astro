@@ -53,8 +53,29 @@ const {
 		<Footer />
 	</body>
 </html>
+
+<!-- Cambio de fuente -->
+
 <style is:global>
 	body, h1, h2, h3, p, .post-header, .post-content {	
 		font-family: 'IBM Plex Mono', monospace;
 	}
 </style>
+
+<!-- Añadidas cuadrículas de fondo para fondo claro y oscuro -->
+
+<style>
+	body {
+	  background-image: 
+		linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+	  background-size: 20px 20px;
+	}
+  
+	.dark body {
+	  background-image: 
+		linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+	}
+  </style>
+  
