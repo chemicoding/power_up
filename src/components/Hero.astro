@@ -76,6 +76,12 @@ const site = Astro.site;
       z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
     }
 
+	@media (max-width: 768px) {
+    #spaceship-container img {
+        width: 100px;  /* Tamaño reducido para pantallas móviles */
+    }
+}
+
     #spaceship {
       animation: spaceship-fly 0.8s linear forwards; /* La animación dura 5 segundos */
       width: 200px; /* O ajusta el tamaño como necesites */
