@@ -98,19 +98,23 @@ import Section from './Section.astro';
 <script>
     const lightSwitches = document.querySelectorAll('.light-switch');
     if (lightSwitches.length > 0) {
-        lightSwitches.forEach((lightSwitch, i) => {
+        lightSwitches.forEach((lightSwitch) => {
+            // Asegúrate de que lightSwitch sea tratado como HTMLInputElement
+            const input = lightSwitch as HTMLInputElement;
+
             if (localStorage.getItem('dark-mode') === 'true') {
-                lightSwitch.checked = true;
+                input.checked = true;
             }
-            lightSwitch.addEventListener('click', () => {
-                const { checked } = lightSwitch;
-                lightSwitches.forEach((el, n) => {
-                    if (n !== i) {
-                        el.checked = checked;
+            input.addEventListener('click', () => {
+                const isChecked = input.checked;
+                lightSwitches.forEach((otherSwitch) => {
+                    const otherInput = otherSwitch as HTMLInputElement;
+                    if (otherInput !== input) {
+                        otherInput.checked = isChecked;
                     }
                 });
-                document.documentElement.classList.toggle('dark', checked);
-                localStorage.setItem('dark-mode', checked ? 'true' : 'false');
+                document.documentElement.classList.toggle('dark', isChecked);
+                localStorage.setItem('dark-mode', isChecked ? 'true' : 'false');
             });
         });
     }
