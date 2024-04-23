@@ -36,6 +36,13 @@ import Section from './Section.astro';
 			  display: inline-block;
 			  animation: psychedelic 5s infinite linear;
 			}
+
+			/* Reducción del tamaño de la fuente en dispositivos móviles */
+  			@media (max-width: 768px) {
+  			  .pixel-font {
+  			    font-size: 3rem; /* Tamaño reducido para pantallas móviles */
+  			  }
+  			}
 			</style>
 			
 			<div class="text-3xl font-bold">
