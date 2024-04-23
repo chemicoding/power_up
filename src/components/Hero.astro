@@ -54,3 +54,49 @@ const site = Astro.site;
 		</Social>
 	</div>
 </Section>
+
+<!-- Gradius animation -->
+<style>
+    @keyframes spaceship-fly {
+      0% {
+        transform: translateX(-100%);
+        visibility: visible; /* Asegúrate de que la nave sea visible cuando comienza la animación */
+      }
+      100% {
+        transform: translateX(100vw); /* Se mueve por todo el ancho de la ventana */
+      }
+    }
+
+    #spaceship-container {
+      position: fixed;
+      top: 10%; /* Ajusta esto como necesites */
+      left: 0;
+      visibility: hidden; /* Oculta inicialmente la nave */
+      pointer-events: none; /* Evita cualquier interacción */
+      z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    }
+
+    #spaceship {
+      animation: spaceship-fly 0.8s linear forwards; /* La animación dura 5 segundos */
+      width: 200px; /* O ajusta el tamaño como necesites */
+	  height: auto;
+      visibility: hidden; /* Oculta inicialmente la nave */
+    }
+  </style>
+
+  <script>
+    window.addEventListener('load', () => {
+      const spaceshipContainer = document.getElementById('spaceship-container');
+      if (!localStorage.getItem('hasVisited')) {
+        localStorage.setItem('hasVisited', 'true');
+        spaceshipContainer.style.visibility = 'visible'; // Hace visible el contenedor
+        spaceshipContainer.firstElementChild.style.visibility = 'visible'; // Hace visible la imagen de la nave
+      }
+    });
+  </script>
+</head>
+<body class="flex min-h-screen flex-col bg-stone-100 font-mono text-gray-950 dark:bg-stone-900 dark:text-white">
+  <!-- Contenedor para la animación de la nave -->
+  <div id="spaceship-container">
+    <img src="gradius spaceship.gif" alt="Nave Pixelada" id="spaceship">
+  </div>
