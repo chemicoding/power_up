@@ -1,0 +1,30 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # o tu rama predeterminada donde tienes tu código fuente
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  # o la versión que prefieras
+
+    - name: Install dependencies
+      run: npm ci  # o 'npm install', pero 'npm ci' es más rápido y fiable para esto
+
+    - name: Build the project
+      run: npm run build  # el script de construcción que tienes en package.json
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Asegúrate de que esto coincida con el nombre de tu carpeta de distribución
+        force_orphan: true  # Esto hará que siempre se cree una nueva historia para la rama gh-pages, eliminando cualquier historial previo.

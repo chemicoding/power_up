@@ -86,11 +86,8 @@ const site = Astro.site;
 
   <script>
     window.addEventListener('load', () => {
-      const spaceshipContainer = document.getElementById('spaceship-container');
       if (!localStorage.getItem('hasVisited')) {
         localStorage.setItem('hasVisited', 'true');
-        spaceshipContainer.style.visibility = 'visible'; // Hace visible el contenedor
-        spaceshipContainer.firstElementChild.style.visibility = 'visible'; // Hace visible la imagen de la nave
       }
     });
   </script>
