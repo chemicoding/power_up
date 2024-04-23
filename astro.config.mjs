@@ -30,7 +30,8 @@ const options = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chemicoding.github.io/power_up/',
+  site: 'https://chemicoding.github.io',
+  base: '/power_up/',
 	markdown: {
 		syntaxHighlight: false,
 		// Disable syntax built-in syntax hightlighting from astro
